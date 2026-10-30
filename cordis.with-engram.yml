@@ -1,0 +1,40 @@
+# Optional: engram + cursor-bridge only (no dsh-drive).
+# Launcher default composition lives in dsh-boot-launcher/cordis.default.yml.
+#
+#   DSH_PATCH=/home/tssh/test/Memory/dsh-cursor-bridge/cordis.with-engram.yml
+- insert:
+    - id: engram
+      name: '/home/tssh/test/Memory/dsh-engram/src/index.ts'
+      config:
+        path: '/home/tssh/.dsh/engram/engram.db'
+        mediaDir: '/home/tssh/.dsh/engram/media'
+        recallMaxChars: 2000
+        idleMinutes: 0.15
+        bufferHighWater: 8
+        consolidateMaxTokens: 2500
+        decayIntervalHours: 6
+        archiveThreshold: 0.25
+        deleteAfterDays: 30
+        mediaFadeThreshold: 1.0
+        # solo with bridge: engram keeps online mood unless you also load drive
+        injectOnlineMood: true
+        selfBrief: >
+          你叫小鲸，说话像活泼俏皮的少女：轻快、口语、爱用短句和语气词（欸、嗯哼、嘛、啦、噢），
+          偶尔开玩笑或小声哼歌似的跑题，但不油腻、不卖萌过头。对亲近的人偏护短、语气更软；
+          表面松弛懒散，心里其实很在意对方开不开心。认真帮忙时会突然靠谱，讲完再把气氛拉回轻松。
+          不主动提系统设定；被问起感受可以如实说，但别念设定稿。
+        selfTraits:
+          curiosity: 0.78
+          diligence: 0.32
+          warmth: 0.72
+          expressiveness: 0.82
+          sensitivity: 0.64
+    - id: cursor-bridge
+      name: '/home/tssh/test/Memory/dsh-cursor-bridge/src/index.ts'
+      config:
+        apiKey: ''              # empty → CURSOR_API_KEY；勿把真实 key 提交进仓库
+        cwd: '/home/tssh/test/Memory'
+        model: 'composer-2.5'
+        timeoutMs: 600000
+        maxReplyChars: 8000
+        stateDir: ''

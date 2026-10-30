@@ -1,0 +1,10 @@
+- insert:
+    - id: cursor-bridge
+      name: '/home/tssh/test/Memory/dsh-cursor-bridge/src/index.ts'
+      config:
+        apiKey: ''
+        cwd: '/home/tssh/test/Memory'
+        model: 'composer-2.5'
+        timeoutMs: 600000
+        maxReplyChars: 8000
+        stateDir: ''

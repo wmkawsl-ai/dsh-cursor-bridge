@@ -1,0 +1,36 @@
+{
+  "name": "dsh-cursor-bridge",
+  "version": "0.1.0-preview.0",
+  "description": "DSH plugin: chat with a local Cursor Agent via @cursor/sdk tools",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=24.9.0"
+  },
+  "main": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "src",
+    "cordis.example.yml",
+    "README.md",
+    "CHANGELOG.md"
+  ],
+  "dependencies": {
+    "@cursor/sdk": "^1.2.0"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "*",
+    "@deepseek-ai/dsh-tools": "*",
+    "@deepseek-ai/schemastery": "*"
+  },
+  "keywords": [
+    "deepseek",
+    "dsh",
+    "cursor",
+    "sdk",
+    "bridge"
+  ]
+}

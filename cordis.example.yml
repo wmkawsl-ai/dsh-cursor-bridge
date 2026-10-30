@@ -1,0 +1,15 @@
+# Example patch for DeepSeek Harness:
+#   pnpm dsh web --patch /path/to/dsh-cursor-bridge/cordis.example.yml
+#
+# Requires: export CURSOR_API_KEY=cursor_...
+# This talks to a *local Cursor Agent via SDK*, not the Cursor IDE chat panel.
+- insert:
+    - id: cursor-bridge
+      name: './src/index.ts'   # replace with absolute path when patching
+      config:
+        apiKey: ''              # empty → CURSOR_API_KEY
+        cwd: ''                 # empty → process.cwd() / session cwd
+        model: 'composer-2.5'
+        timeoutMs: 600000
+        maxReplyChars: 8000
+        stateDir: ''            # empty → ~/.dsh/cursor-bridge
